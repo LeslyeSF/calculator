@@ -11,8 +11,9 @@ import Screen from '../components/Screen'
 export default function Home() {
   const [check, setCheck] = useState(true)
   const [operation, setOperation] = useState('')
-  const [value, setValue] = useState(null)
-  const [action, setAction] = useState(null)
+  const [history, setHistory] = useState([])
+  const [result, setResult] = useState(null)
+  
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setCheck(event.target.checked)
@@ -32,8 +33,8 @@ export default function Home() {
           <BsFillMoonFill/>
         </div>
         <div className='flex flex-col h-5/6 gap-2 md:flex-row md:justify-around md:h-5/6 md:w-full'>
-          <Screen operation={operation}/>
-          <Keyboard operation={operation} setOperation={setOperation} value={value} setValue={setValue} action={action} setAction={setAction}/>
+          <Screen operation={operation} result={result} history={history} />
+          <Keyboard operation={operation} setOperation={setOperation} history={history} setHistory={setHistory} result={result} setResult={setResult}/>
         </div>
       </Calculator>
     </div>
