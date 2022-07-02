@@ -13,7 +13,7 @@ export default function Screen({ operation, result, history }) {
         {(result)? result: operation}
       </div>
       <div className='absolute bottom-24 top-0 text-white p-2 dark:text-indigo-300 w-full p-1 overflow-hidden'>
-        {history.map((value)=><p>{value}</p>)}
+        {history.map((value, i)=><p key={i}>{value}</p>)}
       </div>
     </div>
   )
